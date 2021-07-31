@@ -22,8 +22,10 @@ class RegexHandler:
         :return: dict of matches by regex per line
         '''
         dict_of_matches_per_line = {}
-        for i, line in enumerate(open(txt_file_path)):
-            for match in re.finditer(reg_pattern, line):
-                dict_of_matches_per_line[i + 1] = match.group()
-
-        return dict_of_matches_per_line
+        try:
+            for i, line in enumerate(open(txt_file_path)):
+                for match in re.finditer(reg_pattern, line):
+                    dict_of_matches_per_line[i + 1] = match.group()
+            return dict_of_matches_per_line
+        except FileNotFoundError:
+            return FileNotFoundError
