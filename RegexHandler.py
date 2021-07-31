@@ -22,6 +22,7 @@ class RegexHandler:
         :return: dict of matches by regex per line
         '''
         dict_of_matches_per_line = {}
+        print(f"txt file path = {txt_file_path}")
         try:
             for i, line in enumerate(open(txt_file_path)):
                 for match in re.finditer(reg_pattern, line):

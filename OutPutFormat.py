@@ -23,7 +23,7 @@ class OutPutFormat:
             dict_of_matches = RegexHandler.get_lines_matching_reg_pattern_in_txt_file(reg_pattern, file)
             # format = file_name:no_line:matched_text
             for line in dict_of_matches.keys():
-                if args['m'] is not None:
+                if args['m'] == "machine":
                     output_format_obj = OutPutFormat(file, line, dict_of_matches[line])
                     output_format_txt = f"{output_format_obj.file_name}:{output_format_obj.line_num}:{output_format_obj.matched_line}"
                 else:
